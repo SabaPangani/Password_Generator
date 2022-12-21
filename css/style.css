@@ -1,0 +1,286 @@
+@charset "UTF-8";
+:root {
+  --very-dark-gray: hsl(248, 15%, 11%);
+  --card-bg: hsl(248, 10%, 15%);
+  --dark-gray: hsl(251, 9%, 53%);
+  --gray: hsl(252, 11%, 91%);
+  --almost-white: #e6e5ea;
+  --neon-green: hsl(127, 100%, 82%);
+  --yellow: hsl(42, 91%, 68%);
+  --orange: hsl(13, 95%, 66%);
+  --red: hsl(0, 91%, 63%);
+  --body-background: linear-gradient(180deg, #14131b 0%, #08070b 100%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "JetBrains Mono", monospace;
+}
+
+body {
+  background: linear-gradient(180deg, #14131b 0%, #08070b 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  color: var(--almost-white);
+  overflow: hidden;
+  padding: 0 10px;
+}
+
+.copied.active {
+  opacity: 1 !important;
+  right: 65px !important;
+}
+
+.app .container {
+  width: 540px;
+  max-width: 100%;
+  margin: auto;
+  margin-top: 300px;
+  animation: 0.3s ease-out 0s 1 slideInFromLeft;
+}
+.app .container .wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+.app .container .wrapper .header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-bg);
+  padding: 17px 35px;
+}
+.app .container .wrapper .header .copied {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  opacity: 0;
+  color: var(--neon-green);
+  font-weight: 700;
+  transition: 0.4s;
+}
+.app .container .wrapper .header p {
+  font-size: 2rem;
+  opacity: 0.3;
+  font-weight: 700;
+}
+.app .container .wrapper .header svg {
+  fill: var(--neon-green);
+  transition: 0.3s;
+  z-index: 10;
+}
+.app .container .wrapper .header svg:hover {
+  fill: var(--almost-white);
+}
+.app .container .wrapper .gen-body {
+  background-color: var(--card-bg);
+  padding: 25px 35px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+.app .container .wrapper .gen-body .char-length {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.app .container .wrapper .gen-body .char-length span {
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+.app .container .wrapper .gen-body .char-length span:nth-child(2) {
+  font-size: 2rem;
+  color: var(--neon-green);
+}
+.app .container .wrapper .gen-body .range-div {
+  width: 100%;
+  position: relative;
+}
+.app .container .wrapper .gen-body .range-div .follower {
+  position: relative;
+  top: 15px;
+  width: 0%;
+  height: 8px;
+  background-color: var(--neon-green);
+  z-index: 1;
+}
+.app .container .wrapper .gen-body .range-div .range {
+  width: 100%;
+  -webkit-appearance: none;
+}
+.app .container .wrapper .gen-body .range-div .range::-webkit-slider-thumb {
+  position: relative;
+  z-index: 3;
+  width: 27px;
+  height: 27px;
+  border-radius: 100%;
+  border: 2px solid #83E584;
+  background-color: var(--very-dark-gray);
+  -webkit-appearance: none;
+  margin-top: -10px;
+  cursor: pointer;
+}
+.app .container .wrapper .gen-body .range-div .range::-webkit-slider-runnable-track {
+  background-color: var(--very-dark-gray) !important;
+  height: 8px;
+}
+.app .container .wrapper .checkBoxes {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.app .container .wrapper .checkBoxes label {
+  display: flex;
+  flex-direction: row;
+  column-gap: 22px;
+}
+.app .container .wrapper .checkBoxes label input {
+  -webkit-appearance: none;
+  height: 1.7em;
+  width: 1.7em;
+  cursor: pointer;
+  background-color: #d8d8d8;
+  border: 1px solid var(--almost-white);
+  position: relative;
+}
+.app .container .wrapper .checkBoxes label input:checked {
+  background-color: var(--neon-green);
+}
+.app .container .wrapper .checkBoxes label input:checked::before {
+  opacity: 1;
+}
+.app .container .wrapper .checkBoxes label input::before {
+  content: "✔";
+  font-size: 1.1rem;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: var(--very-dark-gray);
+  font-weight: 700;
+  opacity: 0;
+  transition: 0.3s;
+}
+.app .container .wrapper .checkBoxes label span {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.13rem;
+}
+.app .container .wrapper .strength {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--very-dark-gray);
+  padding: 20px 35px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.app .container .wrapper .strength span {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--dark-gray);
+}
+.app .container .wrapper .strength .strength-calc {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.app .container .wrapper .strength .strength-calc p {
+  margin-right: 15px;
+}
+.app .container .wrapper .strength .strength-calc .cubes {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+.app .container .wrapper .strength .strength-calc .cubes span {
+  width: 10px;
+  height: 28px;
+  display: inline-block;
+  border: 2px solid red;
+  transition: 0.3s;
+}
+.app .container .wrapper .generate button {
+  width: 100%;
+  padding: 15px 0;
+  background-color: var(--neon-green);
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  color: black;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.app .container .wrapper .generate button:hover {
+  background-color: var(--very-dark-gray);
+  border: 2px solid var(--neon-green);
+  color: var(--neon-green);
+}
+.app .container .wrapper .generate button .bi {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 420px) {
+  .header {
+    padding: 17px 20px !important;
+  }
+  .gen-body {
+    padding: 17px 20px !important;
+  }
+  .checkBoxes label input {
+    width: 1.1rem !important;
+    height: 1.1rem !important;
+  }
+  .checkBoxes label input::before {
+    font-size: 0.87rem !important;
+  }
+  .checkBoxes label span {
+    font-size: 0.91rem !important;
+  }
+  .strength {
+    padding: 20px !important;
+  }
+}
+.title {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 18%;
+  transform: translateY(-18%);
+  color: var(--dark-gray);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
