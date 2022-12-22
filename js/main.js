@@ -27,7 +27,7 @@ rangeInput.addEventListener("input",function(e){
     const min = parseInt(e.target.min);
     const max = parseInt(e.target.max);
 
-    const width = ((value - min) / (max - min)) * 98 + '%';
+    const width = ((value - min) / (max - min)) * 99 + '%';
     follower.style.width = width;
     console.log(width)
 

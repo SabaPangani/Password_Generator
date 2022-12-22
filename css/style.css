@@ -85,7 +85,7 @@ body {
   padding: 25px 35px;
   display: flex;
   flex-direction: column;
-  row-gap: 40px;
+  row-gap: 30px;
 }
 .app .container .wrapper .gen-body .char-length {
   display: flex;
@@ -103,6 +103,7 @@ body {
 .app .container .wrapper .gen-body .range-div {
   width: 100%;
   position: relative;
+  bottom: 13px;
 }
 .app .container .wrapper .gen-body .range-div .follower {
   position: relative;
@@ -122,11 +123,15 @@ body {
   width: 27px;
   height: 27px;
   border-radius: 100%;
-  border: 2px solid #83E584;
-  background-color: var(--very-dark-gray);
+  background-color: var(--almost-white);
   -webkit-appearance: none;
   margin-top: -10px;
+  transition: 0.3s ease;
   cursor: pointer;
+}
+.app .container .wrapper .gen-body .range-div .range::-webkit-slider-thumb:hover {
+  border: 2px solid #83E584;
+  background-color: var(--very-dark-gray);
 }
 .app .container .wrapper .gen-body .range-div .range::-webkit-slider-runnable-track {
   background-color: var(--very-dark-gray) !important;
@@ -146,11 +151,10 @@ body {
 }
 .app .container .wrapper .checkBoxes label input {
   -webkit-appearance: none;
-  height: 1.7em;
-  width: 1.7em;
+  height: 1.6em;
+  width: 1.6em;
   cursor: pointer;
-  background-color: #d8d8d8;
-  border: 1px solid var(--almost-white);
+  border: 2px solid var(--almost-white);
   position: relative;
 }
 .app .container .wrapper .checkBoxes label input:checked {
