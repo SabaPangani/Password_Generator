@@ -56,6 +56,7 @@ body {
   align-items: center;
   background-color: var(--card-bg);
   padding: 17px 35px;
+  overflow: hidden;
 }
 .app .container .wrapper .header .copied {
   position: absolute;
@@ -71,6 +72,8 @@ body {
   font-size: 2rem;
   opacity: 0.3;
   font-weight: 700;
+  overflow: hidden;
+  max-width: 80%;
 }
 .app .container .wrapper .header svg {
   fill: var(--neon-green);
@@ -165,10 +168,10 @@ body {
 }
 .app .container .wrapper .checkBoxes label input::before {
   content: "✔";
-  font-size: 1.1rem;
+  font-size: 1rem;
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 37%;
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
@@ -268,11 +271,11 @@ body {
   }
 }
 .title {
-  width: 100%;
   text-align: center;
   position: absolute;
   top: 18%;
-  transform: translateY(-18%);
+  left: 50%;
+  transform: translate(-50%, -18%);
   color: var(--dark-gray);
   font-size: 1.6rem;
   font-weight: 700;
