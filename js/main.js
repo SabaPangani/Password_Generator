@@ -66,15 +66,15 @@ function generatePassword(){
     const useNumbers = document.querySelector(".useNumbers");
     const useSymbols = document.querySelector(".useSymbols");
 
-    useUpperCase.checked == true && (chars = [...chars,...upperCase]);
-    useLowerCase.checked == true && (chars = [...chars,...lowerCase]);
-    useNumbers.checked == true && (chars = [...chars,...numbers]);
-    useSymbols.checked == true && (chars = [...chars,...symbols]);
+    useUpperCase.checked && (chars = [...chars,...upperCase]);
+    useLowerCase.checked && (chars = [...chars,...lowerCase]);  
+    useNumbers.checked && (chars = [...chars,...numbers]);
+    useSymbols.checked && (chars = [...chars,...symbols]);
 
     if (chars.length > 0){
         for (let i = 0; i < length; i++){
             password += chars[Math.floor(Math.random() * chars.length)];
-        }
+        }   
     }
 
     return password;
